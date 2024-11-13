@@ -52,12 +52,14 @@ export class Loan {
      * @returns total expected interest
      */
     totalExpectedInterest(): number {
-        return this.loanAmount * this.interestRate * this.loanLength;
+        //return this.pmt * this.interestRate * this.loanLength;
+        return this.totalExpectedPayments() - this.loanAmount;
     }
 
     //  TotalExpectedPayments - The total amount of expected payments, if no extra payments are made
     totalExpectedPayments(): number {
-        return this.pmt * this.totalExpectedPaymentCount();
+        return Loan.roundTo(Math.abs(this.pmt) * this.loanLength * 12, 2);
+        //return this.pmt * this.totalExpectedPaymentCount();
     }
 
     totalPaidInterest(): number {
@@ -87,7 +89,7 @@ export class Loan {
 
     totalPaymentCount(): number {
         // FixMe
-        return this.payments.length;
+        return this.payments.length + 1;
     }
 
     totalExpectedPaymentCount(): number {
