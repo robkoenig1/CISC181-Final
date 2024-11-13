@@ -121,11 +121,11 @@ export class Loan {
             //  Calculate PmtPrinciple
             //  Don't forget to deal with extra payment
             //  Calculate PmtEndingBalanc
-            let total: number = Loan.roundTo(this.pmt, 2) + this.extraPayment;
+            let total: number = this.pmt + this.extraPayment;
             let pmtInterest: number = (loanBalance * this.interestRate) / 12;
             cumulativeInterest += pmtInterest;
             let pmtPrinciple: number = total - pmtInterest;
-            let pmtScheduledPayment: number = Loan.roundTo(this.pmt, 2);
+            let pmtScheduledPayment: number = this.pmt;
             let pmtEndingBalance: number = loanBalance - pmtPrinciple;
             //console.log(this.pmt);
             //console.log(loanBalance);
