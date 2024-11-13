@@ -68,7 +68,7 @@ export class Loan {
             total = total + this.payments[i].getInterestAmount();
         }
         // FixMe
-        return total;
+        return Loan.roundTo(total, 2);
     }
 
     totalPaidPayments(): number {
