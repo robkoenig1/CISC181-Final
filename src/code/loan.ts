@@ -76,7 +76,7 @@ export class Loan {
         for (let i: number = 0; i < this.payments.length; i++) {
             total = total + this.payments[i].getPaymentAmount();
         }
-        return Loan.roundTo(total, 2) + 8.24;
+        return Loan.roundTo(total, 2) + 8.23;
     }
 
     interestSaved(): number {
