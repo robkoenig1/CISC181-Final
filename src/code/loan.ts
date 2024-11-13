@@ -95,7 +95,7 @@ export class Loan {
 
     totalPaymentCount(): number {
         // FixMe
-        return this.payments.length + 1;
+        return this.payments.length;
     }
 
     totalExpectedPaymentCount(): number {
