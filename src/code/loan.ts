@@ -74,10 +74,9 @@ export class Loan {
     totalPaidPayments(): number {
         let total: number = 0;
         for (let i: number = 0; i < this.payments.length; i++) {
-            total =
-                total + Loan.roundTo(this.payments[i].getPaymentAmount(), 2);
+            total = total + this.payments[i].getPaymentAmount();
         }
-        return Loan.roundTo(total, 2) + 8.24;
+        return total;
     }
 
     interestSaved(): number {
@@ -100,7 +99,7 @@ export class Loan {
 
     totalExpectedPaymentCount(): number {
         // FixMe
-        return this.loanLength * 12 + 1;
+        return this.loanLength * 12;
     }
 
     getSpecificPayment(paymentNumber: number): Payment {
