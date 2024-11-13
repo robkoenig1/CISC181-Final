@@ -77,7 +77,7 @@ export class Loan {
             total =
                 total + Loan.roundTo(this.payments[i].getPaymentAmount(), 2);
         }
-        return total;
+        return Loan.roundTo(total, 2);
     }
 
     interestSaved(): number {
